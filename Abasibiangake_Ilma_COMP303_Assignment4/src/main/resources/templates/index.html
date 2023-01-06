@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Login Page</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+    crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+    
+
+<link 
+  href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
+  rel="stylesheet"  type='text/css'>  
+<style>
+	span{color:red;}
+	
+	body{
+	background-image:url(https://res.cloudinary.com/elite-product/image/upload/v1669313008/cruise/200421145514-costa-deliziosa-2-1-full-169_p2nkh6.jpg);
+	opacity:0.7;
+	background-size: cover;
+	}
+
+	.divider:after,
+	.divider:before {
+		content: "";
+		flex: 1;
+		height: 1px;
+		background: #eee;
+	}
+	.d-flex-two {
+		margin-left:7rem;
+	}
+	.col-md-7 {
+		background: hsl(240, 100%, 10%);
+		padding-top:2rem;
+		color:white;
+		padding-bottom:2rem;
+		padding-left:2rem;
+		padding-right:2rem;
+		margin:0%;
+		
+	}
+	h1{
+		text-align:center;
+	}
+	p{
+		text-align:center;
+		font-weight:bold;
+		color:red;
+		padding-top:2rem;
+	}
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!-- Container wrapper -->
+  <div class="container">
+    <!-- Navbar brand -->
+    <a class="navbar-brand me-2" href="#">
+      <img
+        src="https://res.cloudinary.com/elite-product/image/upload/v1666384219/people/Black_Minimalist_Modern_Letter_N_Logo_tvn5fo.png"
+        height="36"
+        alt="MDB Logo"
+        loading="lazy"
+        style="margin-top: -1px;"
+      />
+    </a>
+
+    <!-- Toggle button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarButtonsExample"
+      aria-controls="navbarButtonsExample"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarButtonsExample">
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Dashboard</a>
+        </li>
+      </ul>
+      <!-- Left links -->
+
+    </div>
+    <!-- Collapsible wrapper -->
+  </div>
+  <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->
+<form action = "cruise" method="get">
+<section class="vh-100">
+  <div class="container py-5 h-100">
+    <div class="row d-flex align-items-center justify-content-center h-100">
+      <div class="col-md-8 col-lg-7 col-xl-6">
+        <img src="https://res.cloudinary.com/elite-product/image/upload/v1669313689/cruise/5087579_bjyerx.png"
+          class="img-fluid" alt="Phone image">
+      </div>
+      <div class="col-md-7 col-lg-5 col-xl-5 offset-xl-1">
+        <h1>WELCOME TO ILBAS CRUISE PORTAL!</h1>
+        <p>Please sign in</p>
+        <form action="login" method="post">
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+            <input type="email" id="email" class="form-control form-control-lg" name="email" placeholder= "Enter email" required/>
+            <label class="form-label" for="email">Email</label>
+          </div>
+
+          <!-- Password input -->
+          <div class="form-outline mb-4">
+            <input type="password" id="password" class="form-control form-control-lg" name="password" placeholder= "Enter password" required/>
+            <label class="form-label" for="password">Password</label>
+          </div>
+
+          <div class="d-flex justify-content-around align-items-center mb-4">
+            <!-- Checkbox -->
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
+              <label class="form-check-label" for="form1Example3"> Remember me </label>
+            </div>
+            <a href="#!">Forgot password?</a>
+          </div>
+
+          <!-- Submit button -->
+          <div class="d-flex-two center pt-4">
+	          <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
+	          <a type="submit" href="/registration" class="btn btn-warning btn-lg ms-2">Register</a>
+		  </div>
+	
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+ </form>
+</body>
+</html>

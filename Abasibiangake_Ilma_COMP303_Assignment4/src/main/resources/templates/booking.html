@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Cruise Booking</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+    crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+    
+
+<link 
+  href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
+  rel="stylesheet"  type='text/css'>  
+  
+<style>
+
+
+body{
+	background-image:url(https://res.cloudinary.com/elite-product/image/upload/v1669313008/cruise/slice-b-cb-overview-900_dklhcg.jpg);
+	opacity:0.88;
+	background-size: cover;
+}
+
+.container-intro{
+	text-align: center;
+    background-color: white;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #7aa8b7;
+    border-radius: 6px;
+    outline: none;
+    float:right;
+}
+
+.container-book{
+		margin:auto;
+    align-items: center;
+    width:70%;
+    height: 100%;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 2rem 2rem;
+    margin-top: 1%;
+}
+
+
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!-- Container wrapper -->
+  <div class="container">
+    <!-- Navbar brand -->
+    <a class="navbar-brand me-2" href="#">
+      <img
+        src="https://res.cloudinary.com/elite-product/image/upload/v1666384219/people/Black_Minimalist_Modern_Letter_N_Logo_tvn5fo.png"
+        height="36"
+        alt="MDB Logo"
+        loading="lazy"
+        style="margin-top: -1px;"
+      />
+    </a>
+
+    <!-- Toggle button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarButtonsExample"
+      aria-controls="navbarButtonsExample"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarButtonsExample">
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Dashboard</a>
+        </li>
+      </ul>
+      <!-- Left links -->
+
+      <div class="d-flex align-items-center">
+        <a type="submit" style="background-color: #7aa8b7;" href ="/" class="btn btn-primary me-3">
+          Login
+        </a>
+        <a type="submit" style="background-color: #7aa8b7;" href ="/cruise" class="btn btn-primary me-3">
+          Cruise
+        </a>
+        <a type="submit"  style="background-color: #7aa8b7;" href ="/book" class="btn btn-primary me-3">
+         Booking
+        </a>
+        <a
+          type="submit"  style="color: #7aa8b7; font-size: 2.3rem; font-weight: bold;" href ="/profile">
+          <i class="fa fa-user" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+    <!-- Collapsible wrapper -->
+  </div>
+  <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->
+
+<div class="container-intro">
+    <h1>Hi James!!</h1>
+    <p>Welcome to ILBAS Cruise App. We are here to guide your cruise booking</p>
+    <h6><span>Instruction: </span>Click "Proceed to Checkout" if you want to continue with this booking </h6>
+    <br><br>
+    <h2>MY BOOKING CART</h2>
+
+</div>
+
+<!-- Reference: https://codepen.io/cristinaconacel/pen/OBKBPK
+ -->  
+ <div class="container-book">
+  <div class="row">
+    <div class="col-12">
+    		<table class="table table-image">
+		  <thead>
+		    <tr>
+		      <th scope="col">#</th>
+		      <th scope="col">Image</th>
+		      <th scope="col">Cruise Name</th>
+		      <th scope="col">Price</th>
+		      <th scope="col">Number of Guest</th>
+		      <th scope="col">SubTotal</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		    <tr>
+		      <th scope="row">1</th>
+		      <td class="w-25">
+			      <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/sheep-3.jpg" class="img-fluid img-thumbnail" alt="Sheep">
+		      </td>
+		      <td th:text="${CruiseName}"></td>
+		      <td th:text="${Price}"></td>
+                <td><form method="POST" th:action="@{/book/{cruiseId} (cruiseId=${cruisee.cruiseId})}"><div><input style="width:50%;" type="number" id="noOfGuest" name="noOfGuest" placeholder= "Enter value" required/></div></form> </td>
+		      <td th:text="${TotalPrice}"></td>
+		    </tr>
+		    
+		  </tbody>
+		  
+		</table> 
+		
+                    
+		<p style="float: right; font-weight:bold;">	Total: $<span class="card-text" th:text="${TotalPrice}"></span></p>
+		
+		<br><br>
+		<form method="POST" th:action="@{/checkout/{TotalPrice}/{cruiseId}/{noOfGuest} (cruiseId=${cruisee.cruiseId}, noOfGuest=${noOfGuest}, TotalPrice=${TotalPrice})}"><button type="submit" class="button">Proceed to Checkout</button></form>
+	  
+    </div>
+  </div>
+</div>
+<br><br>
+        
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Cruise List</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+    crossorigin="anonymous">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+    
+
+<link 
+  href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
+  rel="stylesheet"  type='text/css'>  
+  
+<style>
+	.card-img-top{
+    width:30%;
+    height:auto;
+}
+
+	body{
+	background-image:url(https://res.cloudinary.com/elite-product/image/upload/v1669313008/cruise/slice-b-cb-overview-900_dklhcg.jpg);
+	opacity:0.88;
+	background-size: cover;
+	}
+.card-block{
+    margin: 1rem;
+}
+.container-intro{
+	text-align: center;
+    background-color: white;
+}
+.card{
+	margin:auto;
+    align-items: center;
+    width:70%;
+    height: 100%;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    margin-top: 1%;
+}
+.card-horizontal{
+	display:flex;
+}
+h6{
+	color:red;
+}
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #ffffff;
+    background-color: #7aa8b7;
+    border-radius: 6px;
+    outline: none;
+}
+
+
+</style>
+</head>
+<body>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!-- Container wrapper -->
+  <div class="container">
+    <!-- Navbar brand -->
+    <a class="navbar-brand me-2" href="#">
+      <img
+        src="https://res.cloudinary.com/elite-product/image/upload/v1666384219/people/Black_Minimalist_Modern_Letter_N_Logo_tvn5fo.png"
+        height="36"
+        alt="MDB Logo"
+        loading="lazy"
+        style="margin-top: -1px;"
+      />
+    </a>
+
+    <!-- Toggle button -->
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-mdb-toggle="collapse"
+      data-mdb-target="#navbarButtonsExample"
+      aria-controls="navbarButtonsExample"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarButtonsExample">
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Dashboard</a>
+        </li>
+      </ul>
+      <!-- Left links -->
+      <div class="d-flex align-items-center">
+        <a type="submit" style="background-color: #7aa8b7;" href ="/" class="btn btn-primary me-3">
+          Login
+        </a>
+        <a type="submit" style="background-color: #7aa8b7;" href ="/cruise" class="btn btn-primary me-3">
+          Cruise
+        </a>
+        <a type="submit"  style="background-color: #7aa8b7;" href ="/book" class="btn btn-primary me-3">
+         Booking
+        </a>
+        <a
+          type="submit"  style="color: #7aa8b7; font-size: 2.3rem; font-weight: bold;" href ="/profile">
+          <i class="fa fa-user" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+    <!-- Collapsible wrapper -->
+  </div>
+  <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->
+<div class="container-intro">
+    <h1>Hi James!!</h1>
+    <p>Welcome to ILBAS Cruise App. We are here to guide your cruise booking</p>
+    <h6><span>Instruction: </span>From the menu below, please select which cruise you would love to book. </h6>
+    <br><br>
+    <h2>POPULAR CRUISE AVAILABLE THIS YEAR</h2>
+
+</div>
+
+<div class="container">
+    <div class="row">
+    	<th:block th:each="cruise:${cruiselist}">
+    		<div class="card">
+    		<!-- <form class="form-horizontal" method="post"
+         th:action="@{/book/{cruiseId} (cruiseId=${cruisee.cruiseId})}" th:object="${selectedCruiseName}"> -->
+            <div class="card-horizontal">
+                <img class="card-img-top" src="https://res.cloudinary.com/elite-product/image/upload/v1669313008/cruise/cruise-ship-deck-cr-getty-140533975_wjuviz.jpg"
+                 id="img1"alt="Card image cap">
+                <div class="card-block">
+                    <h4 class="card-title" th:text="${cruise.CruiseName}"></h4> 
+                      <input type="hidden" name="selectedCruiseName" th:value="${cruise.CruiseName}" />
+                   <label for="location">Departure Date: </label>
+                    <span class="card-text" th:text="${cruise.DepartureDate}"></span>
+                    <br>
+                    <label for="location">Duration(days): </label>
+                    <span class="card-text" th:text="${cruise.Duration}"></span>
+                    <br>
+                    <small class="text-muted" th:text="${cruise.Price}"></small>
+                    <br><br>
+                    
+<!--                     <button type="submit" class="button">BOOK</button>
+ -->                    <a th:href="@{/book/{cruiseId}(cruiseId=${cruise.cruiseId})}" class="button">BOOK</a>
+                    
+                </div>
+                
+            </div>
+
+
+        </div>
+    	</th:block>
+    </div>
+</div>
+</body>
+</html>
