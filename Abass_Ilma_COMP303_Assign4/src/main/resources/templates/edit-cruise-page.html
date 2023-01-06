@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Edit Cruise</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" th:href="@{index.css}">
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<style>
+* {
+	box-sizing: border-box;
+}
+
+input[type=text], select, textarea {
+	width: 100%;
+	padding: 12px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	margin-top: 6px;
+	margin-bottom: 16px;
+	resize: vertical;
+}
+
+input[type=submit] {
+	background-color: #5a5e9a;
+	color: white;
+	padding: 12px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+input[type=submit]:hover {
+	background-color: #45a049;
+}
+
+.center-page {
+	margin: auto;
+	align-items: center;
+	width: 70%;
+	height: 100%;
+	border-radius: 5px;
+	background-color: #DDBEAA;
+	border: 5px double #469597;
+		padding: 2rem 2rem;
+	margin-top: 1%;
+}
+table{
+	margin: auto;
+}
+
+
+	body{
+	background-image:url(https://res.cloudinary.com/elite-product/image/upload/v1669313008/cruise/slice-b-cb-overview-900_dklhcg.jpg);
+	opacity:0.88;
+	background-size: cover;
+	}
+</style>
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="/all-cruise">Ilbas Cruise</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li><a href="/add">Add</a></li>
+				</ul>
+
+			</div>
+		</nav>
+	</header>
+	<div class=center-page>
+		<form action="#"
+			th:action="@{/update-cruise/{cruiseId}(cruiseId=${cruise.cruiseId})}"
+			th:object="${cruise}" method="post">
+			<h2>
+				<strong>Edit Cruise Details</strong>
+			</h2>
+			<div class="div-to-align">
+			<Table>
+							<tr>
+					<td><input type="hidden" id="cruiseId"
+						th:field="*{cruiseId}" name="cruiseId"></td>
+				<tr>
+					<td>Cruise Destination:</td>
+					<td><input type="text" id="cruiseDestination"
+						th:field="*{cruiseDestination}" name="cruiseDestination"></td>
+				</tr>
+				<tr>
+					<td>Cruise Line:</td>
+					<td><input type="text" id="cruiseLine"
+						th:field="*{cruiseLine}" name="cruiseLine" /></td>
+				</tr>
+				<tr>
+					<td>Departure Date:</td>
+					<td><input type="date" id="departureDate"
+						th:field="*{departureDate}" name="departureDate"></td>
+				</tr>
+
+				<tr>
+					<td>Visiting Places:</td>
+					<td><input type="text" id="visitingPlaces"
+						th:field="*{visitingPlaces}" name="visitingPlaces"></td>
+				</tr>
+
+				<tr>
+					<td>Duration:</td>
+					<td><input type="text" id="duration" th:field="*{duration}"
+						name="duration"></td>
+				</tr>
+				<tr>
+					<td>Price:</td>
+					<td><input type="text" id="price" th:field="*{price}"
+						name="price"></td>
+				</tr>
+
+				<tr>
+					<td><input type="reset" class="btn btn-light btn-lg"></td>
+					<td><input type="submit" class="btn btn-warning btn-lg ms-2"></td>
+				</tr>
+
+			</Table>
+			</div>
+		</Form>
+	</div>
+</body>
+</html>

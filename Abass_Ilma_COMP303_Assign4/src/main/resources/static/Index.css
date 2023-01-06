@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+input[type=text], select, textarea {
+	width: 100%;
+	padding: 12px;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+	margin-top: 6px;
+	margin-bottom: 16px;
+	resize: vertical;
+}
+
+input[type=submit] {
+	background-color: #5a5e9a;
+	color: white;
+	padding: 12px 20px;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+input[type=submit]:hover {
+	background-color: #45a049;
+}
+
+.center-page {
+	margin: auto;
+	align-items: center;
+	width: 70%;
+	height: 100%;
+	border-radius: 5px;
+	background-color: #DDBEAA;
+	border: 5px double #469597;
+	padding: 2rem 2rem;
+	margin-top: 1%;
+}
+
+table {
+	margin: auto;
+}
+
+body {
+	background-image:
+		url(https://res.cloudinary.com/elite-product/image/upload/v1669313008/cruise/slice-b-cb-overview-900_dklhcg.jpg);
+	opacity: 0.88;
+	background-size: cover;
+}

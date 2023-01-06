@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>add Cruise </title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" th:href="@{index.css}">
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="/all-cruise">Ilbas Cruise</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="/add">Add</a></li>
+				</ul>
+
+			</div>
+		</nav>
+	</header>
+	
+	<div class=center-page>
+		<Form action="#" th:action="@{/add-cruise}" th:object="${cruise}"
+			method="post">
+
+			<h2>
+				<strong>Cruise Registration </strong>
+			</h2>
+			<Table class="div-to-align">
+				<tr>
+					<td>Cruise Destination:</td>
+					<td><input type="text" id="cruiseDestination"
+						th:field="*{cruiseDestination}" name="cruiseDestination"></td>
+				</tr>
+				<tr>
+					<td>Cruise Line:</td>
+					<td><input type="text" id="cruiseLine"
+						th:field="*{cruiseLine}" name="cruiseLine" /></td>
+				</tr>
+				<tr>
+					<td>Departure Date:</td>
+					<td><input type="date" id="departureDate"
+						th:field="*{departureDate}" name="departureDate"></td>
+				</tr>
+
+				<tr>
+					<td>Visiting Places:</td>
+					<td><input type="text" id="visitingPlaces"
+						th:field="*{visitingPlaces}" name="visitingPlaces"></td>
+				</tr>
+
+				<tr>
+					<td>Duration:</td>
+					<td><input type="text" id="duration" th:field="*{duration}"
+						name="duration"></td>
+				</tr>
+				<tr>
+					<td>Price:</td>
+					<td><input type="text" id="price" th:field="*{price}"
+						name="price"></td>
+				</tr>
+
+				<tr>
+					<td><input type="reset" class="btn btn-light btn-lg"></td>
+					<td><input type="submit" class="btn btn-warning btn-lg ms-2"></td>
+				</tr>
+
+			</Table>
+		</Form>
+	</div>
+</body>
+</html>

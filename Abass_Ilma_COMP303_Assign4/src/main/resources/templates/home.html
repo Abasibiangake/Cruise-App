@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Cruise List</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" th:href="@{index.css}">
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<style>
+body {
+	background-image:
+		url(https://res.cloudinary.com/elite-product/image/upload/v1669313008/cruise/slice-b-cb-overview-900_dklhcg.jpg);
+	opacity: 0.88;
+	background-size: cover;
+}
+
+</style>
+
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-inverse">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<a class="navbar-brand" href="/all-cruise">Ilbas Cruise</a>
+				</div>
+				<ul class="nav navbar-nav">
+					<li><a href="/add">Add</a></li>
+
+				</ul>
+
+			</div>
+		</nav>
+	</header>
+		<div class="center-page">
+	<h2>
+		<strong >Cruise List</strong>
+	</h2>
+		<table class="table">
+			<thead class="thead-dark">
+				<tr>
+					<th>Cruise Id</th>
+					<th>Cruise Destination</th>
+					<th>Cruise Line</th>
+					<th>Departure Date</th>
+					<th>Visiting Places</th>
+					<th>Duration</th>
+					<th>Price</th>
+
+				</tr>
+			</thead>
+
+			<tr th:each="cruise:${cruiseList}">
+				<td th:text="${cruise.cruiseId}"></td>
+				<td th:text="${cruise.cruiseDestination}"></td>
+				<td th:text="${cruise.cruiseLine}"></td>
+				<td th:text="${cruise.departureDate}"></td>
+				<td th:text="${cruise.visitingPlaces}"></td>
+				<td th:text="${cruise.duration}"></td>
+				<td th:text="${cruise.price}"></td>
+				<td>
+					<form action="#"
+						th:action="@{/edit-cruise/{cruiseId}(cruiseId=${cruise.cruiseId})}"
+						th:method="GET">
+						<button class="btn btn-warning" type="submit">Edit</button>
+					</form>
+				</td>
+				<td>
+					<form action="#"
+						th:action="@{/delete/{cruiseId}(cruiseId=${cruise.cruiseId})}"
+						th:method="POST">
+						<button class="btn btn-danger" type="submit">Delete</button>
+					</form>
+				</td>
+			</tr>
+		</table>
+	</div>
+</html>

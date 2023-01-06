@@ -1,0 +1,186 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Employee Registration Page</title>
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+	integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+	crossorigin="anonymous"></script>
+
+<link
+	href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css"
+	rel="stylesheet" type='text/css'>
+
+<style>
+.card-registration .select-input.form-control[readonly]:not([disabled])
+	{
+	font-size: 1rem;
+	line-height: 2.15;
+	padding-left: .75em;
+	padding-right: .75em;
+}
+
+span {
+	color: red;
+}
+
+divider:after, .divider:before {
+	content: "";
+	flex: 1;
+	height: 1px;
+	background: #eee;
+}
+
+h1 {
+	text-align: center;
+}
+
+p {
+	text-align: center;
+	font-weight: bold;
+	color: red;
+	padding-top: 2rem;
+}
+
+.card-registration .select-arrow {
+	top: 13px;
+}
+
+body {
+	background-image:
+		url(https://res.cloudinary.com/elite-product/image/upload/v1669313008/cruise/200421145514-costa-deliziosa-2-1-full-169_p2nkh6.jpg);
+	opacity: 0.79;
+	background-size: cover;
+}
+
+.img-fluid {
+	background-size: cover;
+	width: 100%;
+	height: 100%;
+}
+</style>
+</head>
+<body>
+	<!-- Navbar -->
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<!-- Container wrapper -->
+		<div class="container">
+			<!-- Navbar brand -->
+			<a class="navbar-brand me-2" href="#"> <img
+				src="https://res.cloudinary.com/elite-product/image/upload/v1666384219/people/Black_Minimalist_Modern_Letter_N_Logo_tvn5fo.png"
+				height="36" alt="MDB Logo" loading="lazy" style="margin-top: -1px;" />
+			</a>
+
+			<!-- Toggle button -->
+			<button class="navbar-toggler" type="button"
+				data-mdb-toggle="collapse" data-mdb-target="#navbarButtonsExample"
+				aria-controls="navbarButtonsExample" aria-expanded="false"
+				aria-label="Toggle navigation">
+				<i class="fas fa-bars"></i>
+			</button>
+
+			<!-- Collapsible wrapper -->
+			<div class="collapse navbar-collapse" id="navbarButtonsExample">
+				<!-- Left links -->
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+					<li class="nav-item"><a class="nav-link" href="#">Dashboard</a>
+					</li>
+				</ul>
+				<!-- Left links -->
+
+				<div class="d-flex align-items-center">
+					<a type="submit" href="/" class="btn btn-link px-3 me-2"> Login
+					</a> <a type="submit" href="/sport" class="btn btn-primary me-3">
+						Add Sport </a> <a type="submit" href="/profile"> <i
+						class="fa fa-user" aria-hidden="true"></i>
+					</a>
+				</div>
+			</div>
+			<!-- Collapsible wrapper -->
+		</div>
+		<!-- Container wrapper -->
+	</nav>
+	<!-- Navbar -->
+
+	<form action="register" method="post">
+		<section class="h-100 bg-dark">
+			<div class="container py-5 h-100">
+				<div
+					class="row d-flex justify-content-center align-items-center h-100">
+					<div class="col">
+						<div class="card card-registration my-4">
+							<div class="row g-0">
+								<div class="col-xl-6 d-none d-xl-block">
+									<img
+										src="https://res.cloudinary.com/elite-product/image/upload/v1669316588/cruise/1200x_j1rhli.jpg"
+										alt="Registration photo" class="img-fluid"
+										style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;" />
+								</div>
+								<div class="col-xl-6">
+									<div class="card-body p-md-5 text-black">
+										<h1>WELCOME TO ILBAS CRUISE PORTAL!</h1>
+										<p>Please fill out the Employee Registration form below</p>
+										<br></br>
+
+
+
+										<div class="row">
+											<div class="col-md-6 mb-4">
+												<div class="form-outline">
+													<input type="number" min="1" max="10" id="empId" name="empId"
+														placeholder="Enter Your Employee Id"
+														class="form-control form-control-lg" required /> <label
+														class="form-label" for="empId">Employee ID:</label><span>*</span>
+												</div>
+											</div>
+											<div class="col-md-6 mb-4">
+												<div class="form-outline">
+													<input type="text" id="empName" name="empName"
+														placeholder="Enter Your Name"
+														class="form-control form-control-lg" required /> <label
+														class="form-label" for="empName">Employee Name:</label> <span>*</span>
+												</div>
+											</div>
+										</div>
+
+										<div class="form-outline mb-4">
+											<input type="text" id="userName" name="userName"
+												placeholder="Enter your username"
+												class="form-control form-control-lg" required /> <label
+												class="form-label" for="userName">User Name:</label>
+										</div>
+
+										<div class="form-outline mb-4">
+											<input type="text" id="password" name="password"
+												placeholder="Enter password"
+												class="form-control form-control-lg" required /> <label
+												class="form-label" for="password">Password</label>
+										</div>
+
+
+
+										<div class="d-flex justify-content-end pt-3">
+											<button type="reset" class="btn btn-light btn-lg">Reset
+												all</button>
+											<button type="submit" class="btn btn-warning btn-lg ms-2">Submit
+												form</button>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</form>
+</body>
+</html>
